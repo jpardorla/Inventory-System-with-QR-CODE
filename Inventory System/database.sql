@@ -49,6 +49,12 @@ CREATE TABLE ProductTypes (
 
     PRIMARY KEY (ProductTypeId));
 
+CREATE TABLE PackagingType (
+    PackagingTypeId int AUTO_INCREMENT,
+    PackagingTypeName varchar(255) NOT NULL,
+
+    PRIMARY KEY (PackagingTypeId));
+
 INSERT INTO employees (EmployeeId,Firstname,Lastname,Age,Address)
     VALUES (1,'Joshua','Pardorla',21,'Tungkop');
 
@@ -63,3 +69,5 @@ INSERT INTO Specifications (SpecificationId,SpecificationName)
     VALUES (1,'100ml');
 INSERT INTO ProductTypes (ProductTypeId,ProductTypeName )
     VALUES (1,'Beverage');
+INSERT INTO PackagingType (PackagingTypeId,PackagingTypeName )
+    VALUES (1,'Plastic');
