@@ -71,3 +71,6 @@ INSERT INTO ProductTypes (ProductTypeId,ProductTypeName )
     VALUES (1,'Beverage');
 INSERT INTO PackagingType (PackagingTypeId,PackagingTypeName )
     VALUES (1,'Plastic');
+
+INSERT INTO PackagingType (PackagingTypeId,PackagingTypeName )
+    VALUES (1,'Plastic');
