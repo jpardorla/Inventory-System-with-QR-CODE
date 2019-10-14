@@ -31,6 +31,24 @@ CREATE TABLE products (
 
     PRIMARY KEY (ProductId));
 
+CREATE TABLE brands (
+    BrandId int AUTO_INCREMENT,
+    BrandName varchar(255) NOT NULL,
+
+    PRIMARY KEY (BrandId));
+
+CREATE TABLE Specifications (
+    SpecificationId int AUTO_INCREMENT,
+    SpecificationName varchar(255) NOT NULL,
+
+    PRIMARY KEY (SpecificationId));
+
+CREATE TABLE ProductTypes (
+    ProductTypeId int AUTO_INCREMENT,
+    ProductTypeName varchar(255) NOT NULL,
+
+    PRIMARY KEY (ProductTypeId));
+
 INSERT INTO employees (EmployeeId,Firstname,Lastname,Age,Address)
     VALUES (1,'Joshua','Pardorla',21,'Tungkop');
 
@@ -39,3 +57,9 @@ INSERT INTO users (UserId,EmployeeId,Username,Userpassword,isAdmin)
 
 INSERT INTO users (UserId,EmployeeId,Username,Userpassword,isAdmin)
     VALUES (2,1,'josh123','josh123',0);
+INSERT INTO brands (BrandId,BrandName)
+    VALUES (1,'Uniliver');
+INSERT INTO Specifications (SpecificationId,SpecificationName)
+    VALUES (1,'100ml');
+INSERT INTO ProductTypes (ProductTypeId,ProductTypeName )
+    VALUES (1,'Beverage');
