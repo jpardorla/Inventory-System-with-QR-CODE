@@ -113,6 +113,7 @@ public class LoginForm extends javax.swing.JFrame {
                         cnn.userid = cnn.rs.getString("UserId");
                         cnn.username = cnn.rs.getString("Username");
                         cnn.isAdmin = cnn.rs.getBoolean("isAdmin");
+                        
 
                         JOptionPane.showMessageDialog(null, "Welcome " + cnn.username + "  UserId:" + cnn.userid + "");
 

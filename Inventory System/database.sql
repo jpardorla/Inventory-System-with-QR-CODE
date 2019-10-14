@@ -22,10 +22,12 @@ CREATE TABLE users (
 CREATE TABLE products (
     ProductId int AUTO_INCREMENT,
     ProductName varchar(255) NOT NULL,
+    ProductSpec varchar(255) NOT NULL,
     ProductType varchar(255) NOT NULL,
     ProductBrand varchar(255) NOT NULL,
-    Bypcs int(255) NOT NULL,
-    Bybox int(255) NOT NULL,
+    PackType varchar(255) NOT NULL,
+    PackQuantity int(255) NOT NULL,
+    ProductDescription varchar(255) NOT NULL,
 
     PRIMARY KEY (ProductId));
 

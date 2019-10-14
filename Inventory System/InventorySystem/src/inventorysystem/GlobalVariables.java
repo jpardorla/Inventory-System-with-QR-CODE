@@ -15,6 +15,7 @@ public class GlobalVariables {
 
     public static String username = "";
     public static Boolean isAdmin = false;
+    public static String userid=null;
 
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     String DB_URL = "jdbc:mysql://localhost:3307/inventorysystem";
@@ -26,7 +27,6 @@ public class GlobalVariables {
     Statement stmt = null;
     ResultSet rs = null;
     PreparedStatement ps = null;
-    String userid;
 
     public GlobalVariables() {
         openDatabase();

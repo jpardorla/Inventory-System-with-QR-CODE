@@ -25,8 +25,7 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * Creates new form MainWindow
      */
-    GlobalVariables user;
-    GlobalVariables userid;// = new GlobalVariables();
+    GlobalVariables user = new GlobalVariables();
 
     public MainWindow() {
         initComponents();
@@ -35,7 +34,7 @@ public class MainWindow extends javax.swing.JFrame {
         showTime();
         showDate();
         Seticon();
-        jLabel2.setText(String.valueOf(userid));
+        jLabel2.setText(String.valueOf("UserId: "+user.userid+" UserId: "+user.username));
         
 
         // System.out.print(user.isAdmin);
@@ -98,10 +97,14 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         productmaster = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
+        mnuRegister1 = new javax.swing.JMenu();
+        receive = new javax.swing.JMenuItem();
+        dispose = new javax.swing.JMenuItem();
         mnuRegister = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        register = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
@@ -123,21 +126,24 @@ public class MainWindow extends javax.swing.JFrame {
         date2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         date2.setForeground(new java.awt.Color(255, 255, 255));
         date2.setText("Date:");
-        jPanel1.add(date2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 420, 50, 20));
+        jPanel1.add(date2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 420, 50, 20));
 
         date.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         date.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 420, 120, 20));
+        jPanel1.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 420, 160, 20));
 
         date1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         date1.setForeground(new java.awt.Color(255, 255, 255));
         date1.setText("Time:");
-        jPanel1.add(date1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, 50, 20));
+        jPanel1.add(date1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 440, 90, 20));
 
         time.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         time.setForeground(new java.awt.Color(255, 255, 255));
-        jPanel1.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 440, 110, 20));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 150, 20));
+        jPanel1.add(time, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 440, 160, 20));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 400, 200, 20));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventorysystem/main123.png"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 3, -1, -1));
@@ -185,20 +191,62 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu2.add(productmaster);
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setText("Receive Product");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem5);
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem3.setText("Brand Master");
+        jMenu2.add(jMenuItem3);
 
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem6.setText("Disposed Product");
-        jMenu2.add(jMenuItem6);
+        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem7.setText("Specification Master");
+        jMenu2.add(jMenuItem7);
+
+        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem9.setText("Product Type Master");
+        jMenu2.add(jMenuItem9);
 
         jMenuBar1.add(jMenu2);
+
+        mnuRegister1.setForeground(new java.awt.Color(0, 0, 51));
+        mnuRegister1.setText("Inventorey Movement");
+        mnuRegister1.setFont(new java.awt.Font("Serif", 1, 14)); // NOI18N
+        mnuRegister1.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                mnuRegister1MenuSelected(evt);
+            }
+        });
+        mnuRegister1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mnuRegister1MouseClicked(evt);
+            }
+        });
+        mnuRegister1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuRegister1ActionPerformed(evt);
+            }
+        });
+
+        receive.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
+        receive.setText("Receive Product");
+        receive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                receiveActionPerformed(evt);
+            }
+        });
+        mnuRegister1.add(receive);
+
+        dispose.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
+        dispose.setText("Disposed Product");
+        dispose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disposeActionPerformed(evt);
+            }
+        });
+        mnuRegister1.add(dispose);
+
+        jMenuBar1.add(mnuRegister1);
 
         mnuRegister.setForeground(new java.awt.Color(0, 0, 51));
         mnuRegister.setText("Register");
@@ -223,14 +271,14 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setText("Register User");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        register.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_U, java.awt.event.InputEvent.CTRL_MASK));
+        register.setText("Register User");
+        register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                registerActionPerformed(evt);
             }
         });
-        mnuRegister.add(jMenuItem4);
+        mnuRegister.add(register);
 
         jMenuBar1.add(mnuRegister);
 
@@ -281,19 +329,19 @@ public class MainWindow extends javax.swing.JFrame {
         this.hide();// TODO add your handling code here:
     }//GEN-LAST:event_productmasterActionPerformed
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+    private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
         Registration x = new Registration();
 
         x.setVisible(true);
         close();
 
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    }//GEN-LAST:event_registerActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+    private void receiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_receiveActionPerformed
         new Receiving().setVisible(true);
         this.hide();// TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
+    }//GEN-LAST:event_receiveActionPerformed
 
     private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
         mousepX = evt.getX();
@@ -305,6 +353,22 @@ public class MainWindow extends javax.swing.JFrame {
         int coordinateY = evt.getYOnScreen();
         this.setLocation(coordinateX - mousepX, coordinateY - mousepY);        // TODO add your handling code here:
     }//GEN-LAST:event_jPanel1MouseDragged
+
+    private void mnuRegister1MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_mnuRegister1MenuSelected
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuRegister1MenuSelected
+
+    private void mnuRegister1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mnuRegister1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuRegister1MouseClicked
+
+    private void mnuRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegister1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuRegister1ActionPerformed
+
+    private void disposeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disposeActionPerformed
+       new Disposing().setVisible(true); // TODO add your handling code here:
+    }//GEN-LAST:event_disposeActionPerformed
     
     private void Seticon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
@@ -349,6 +413,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JLabel date;
     private javax.swing.JLabel date1;
     private javax.swing.JLabel date2;
+    private javax.swing.JMenuItem dispose;
     private javax.swing.JLabel jLabel1;
     public javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu2;
@@ -356,12 +421,15 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu mnuRegister;
+    private javax.swing.JMenu mnuRegister1;
     private javax.swing.JMenuItem productmaster;
+    private javax.swing.JMenuItem receive;
+    private javax.swing.JMenuItem register;
     private javax.swing.JLabel time;
     // End of variables declaration//GEN-END:variables
 }

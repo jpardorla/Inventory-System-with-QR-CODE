@@ -169,7 +169,7 @@ public class Disposing extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel13.setText("Disposing Form");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 140, 30));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 30));
 
         time.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         time.setForeground(new java.awt.Color(255, 255, 255));

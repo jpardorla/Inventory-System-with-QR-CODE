@@ -15,7 +15,8 @@ import javax.swing.JOptionPane;
  * @author Admin
  */
 public class Usedescription extends javax.swing.JFrame {
-
+GlobalVariables cnn = new GlobalVariables();
+GlobalVariables user = new GlobalVariables();
     /**
      * Creates new form Usedescription
      */
@@ -25,9 +26,29 @@ public class Usedescription extends javax.swing.JFrame {
         hidepass();
         username.setFocusable(false);
         password.setFocusable(false);
+        jLabel11.setText(String.valueOf(user.userid));
+        userdescription();
     }
     
-        
+     public void userdescription(){
+                try {
+                    if (!cnn.conn.isClosed()) {
+            String sql = "select * from users where UserId=?";
+            cnn.ps = cnn.conn.prepareStatement(sql);
+            cnn.ps.setString(1, jLabel11.getText());
+            cnn.rs = cnn.ps.executeQuery();
+           if (cnn.rs.next()) {
+            jLabel12.setText(cnn.rs.getString(2));
+            username.setText(cnn.rs.getString(3));
+            password.setText(cnn.rs.getString(4));
+            jLabel10.setText(cnn.rs.getString(5));
+            
+            }
+                }
+        } catch (Exception e) {
+        }
+
+    }    
     public void close() {
 
         WindowEvent winClosingEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
@@ -311,12 +332,14 @@ public class Usedescription extends javax.swing.JFrame {
 
     private void cancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelActionPerformed
         hidepass();
-        username.setFocusable(false);        // TODO add your handling code here:
+        password.setFocusable(false);
+        errorpass.setText("");        // TODO add your handling code here:
     }//GEN-LAST:event_cancelActionPerformed
 
     private void cancel1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancel1ActionPerformed
         hideuser();
-        username.setFocusable(false);        // TODO add your handling code here:
+        username.setFocusable(false);
+        erroruser.setText("");        // TODO add your handling code here:
     }//GEN-LAST:event_cancel1ActionPerformed
 
     private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
