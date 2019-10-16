@@ -21,7 +21,7 @@ public class GlobalVariables {
     String DB_URL = "jdbc:mysql://localhost:3307/inventorysystem";
 
     String user = "root";
-    String password = "pardorla1234";
+    String password = "2468123";
 
     Connection conn = null;
     Statement stmt = null;
@@ -41,7 +41,7 @@ public class GlobalVariables {
             stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             if (!conn.isClosed()) {
 
-                System.out.print("Database Connection Successful!");
+                System.out.print("Database Connection Successful!\n");
 
             }
 

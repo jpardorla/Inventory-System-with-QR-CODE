@@ -97,9 +97,10 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         productmaster = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        Brand = new javax.swing.JMenuItem();
+        Specification = new javax.swing.JMenuItem();
+        Producttype = new javax.swing.JMenuItem();
+        Packagingtype = new javax.swing.JMenuItem();
         mnuRegister1 = new javax.swing.JMenu();
         receive = new javax.swing.JMenuItem();
         dispose = new javax.swing.JMenuItem();
@@ -191,17 +192,41 @@ public class MainWindow extends javax.swing.JFrame {
         });
         jMenu2.add(productmaster);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setText("Brand Master");
-        jMenu2.add(jMenuItem3);
+        Brand.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.CTRL_MASK));
+        Brand.setText("Brand Master");
+        Brand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BrandActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Brand);
 
-        jMenuItem7.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem7.setText("Specification Master");
-        jMenu2.add(jMenuItem7);
+        Specification.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        Specification.setText("Specification Master");
+        Specification.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SpecificationActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Specification);
 
-        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem9.setText("Product Type Master");
-        jMenu2.add(jMenuItem9);
+        Producttype.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
+        Producttype.setText("Product Type Master");
+        Producttype.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProducttypeActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Producttype);
+
+        Packagingtype.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        Packagingtype.setText("Packaging Type Master");
+        Packagingtype.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PackagingtypeActionPerformed(evt);
+            }
+        });
+        jMenu2.add(Packagingtype);
 
         jMenuBar1.add(jMenu2);
 
@@ -369,6 +394,22 @@ public class MainWindow extends javax.swing.JFrame {
     private void disposeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disposeActionPerformed
        new Disposing().setVisible(true); // TODO add your handling code here:
     }//GEN-LAST:event_disposeActionPerformed
+
+    private void PackagingtypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PackagingtypeActionPerformed
+        new Packagingtype().setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_PackagingtypeActionPerformed
+
+    private void BrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrandActionPerformed
+        new Brands().setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_BrandActionPerformed
+
+    private void SpecificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SpecificationActionPerformed
+        new Specification().setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_SpecificationActionPerformed
+
+    private void ProducttypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProducttypeActionPerformed
+        new Producttype().setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_ProducttypeActionPerformed
     
     private void Seticon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("icon.png")));
@@ -410,6 +451,10 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem Brand;
+    private javax.swing.JMenuItem Packagingtype;
+    private javax.swing.JMenuItem Producttype;
+    private javax.swing.JMenuItem Specification;
     private javax.swing.JLabel date;
     private javax.swing.JLabel date1;
     private javax.swing.JLabel date2;
@@ -421,9 +466,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu mnuRegister;
     private javax.swing.JMenu mnuRegister1;

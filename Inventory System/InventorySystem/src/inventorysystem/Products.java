@@ -311,8 +311,15 @@ public class Products extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        new AddProduct().setVisible(true);
-        this.hide();    // TODO add your handling code here:
+        int response = JOptionPane.showConfirmDialog(this, "Do you want to Add Product?", "Confirm", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+        if (response == JOptionPane.YES_OPTION) {
+            new AddProduct().setVisible(true);
+            this.hide();
+        } else if (response == JOptionPane.NO_OPTION) {
+
+        } else if (response == JOptionPane.CLOSED_OPTION) {
+
+        }            // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked

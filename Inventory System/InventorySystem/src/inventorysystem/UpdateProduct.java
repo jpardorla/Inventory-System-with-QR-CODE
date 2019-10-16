@@ -34,6 +34,10 @@ public class UpdateProduct extends javax.swing.JFrame {
      */
     public UpdateProduct() {
         initComponents();
+        fillbrandcombobox();
+        fillSpecificationcombobox();
+        fillproducttypecombobox();
+        fillPackagingTypecombobox();
 
     }
 
@@ -149,7 +153,6 @@ public class UpdateProduct extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, 30));
 
         Specification.setBackground(new java.awt.Color(0, 102, 102));
-        Specification.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10ml", "20ml", "30ml", "100ml", "200ml", "300ml", "400ml", "500ml", "600ml", "700ml", "800ml", "900ml", "1Liter", " " }));
         jPanel1.add(Specification, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 90, 30));
 
         jLabel3.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
@@ -157,7 +160,6 @@ public class UpdateProduct extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, -1, 30));
 
         Producttype.setBackground(new java.awt.Color(0, 102, 102));
-        Producttype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Beverage", "Breads and Pastries", "Toiletreis", "Canned Goods", "Frozen Foods", "Kitchen Items" }));
         jPanel1.add(Producttype, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 340, 30));
 
         jLabel5.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
@@ -165,7 +167,6 @@ public class UpdateProduct extends javax.swing.JFrame {
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, 30));
 
         Productbrand.setBackground(new java.awt.Color(0, 102, 102));
-        Productbrand.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Uniliver", "Nestle", "San Miguel Corp.", "Procter and Gamble", "Rebisco", "NutriAsia", "Nissin", "Coca-Cola", " ", " " }));
         jPanel1.add(Productbrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 340, 30));
 
         jLabel11.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
@@ -173,7 +174,6 @@ public class UpdateProduct extends javax.swing.JFrame {
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, 30));
 
         Packagingtype.setBackground(new java.awt.Color(0, 102, 102));
-        Packagingtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Box", "Plastic", " ", " " }));
         jPanel1.add(Packagingtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 90, 30));
 
         jLabel12.setFont(new java.awt.Font("Tw Cen MT", 1, 18)); // NOI18N
@@ -241,7 +241,7 @@ public class UpdateProduct extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         close();
-               // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
@@ -258,6 +258,101 @@ public class UpdateProduct extends javax.swing.JFrame {
     private void formMouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseDragged
         // TODO add your handling code here:
     }//GEN-LAST:event_formMouseDragged
+    private void fillbrandcombobox() {
+        try {
+
+            if (!cnn.conn.isClosed()) {
+
+                String sql = "select * from Brands";
+
+                cnn.ps = cnn.conn.prepareStatement(sql);
+                cnn.rs = cnn.ps.executeQuery();
+                while (cnn.rs.next()) {
+                    String brand = cnn.rs.getString("BrandName");
+                    Productbrand.addItem(brand);
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(rootPane, "Connection Error", "CALL YOUR ADMINISTRATOR", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
+    private void fillproducttypecombobox() {
+        try {
+
+            if (!cnn.conn.isClosed()) {
+
+                String sql = "select * from ProductTypes";
+
+                cnn.ps = cnn.conn.prepareStatement(sql);
+                cnn.rs = cnn.ps.executeQuery();
+                while (cnn.rs.next()) {
+                    String brand = cnn.rs.getString("ProductTypeName");
+                    Producttype.addItem(brand);
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(rootPane, "Connection Error", "CALL YOUR ADMINISTRATOR", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
+    private void fillSpecificationcombobox() {
+        try {
+
+            if (!cnn.conn.isClosed()) {
+
+                String sql = "select * from Specifications";
+
+                cnn.ps = cnn.conn.prepareStatement(sql);
+                cnn.rs = cnn.ps.executeQuery();
+                while (cnn.rs.next()) {
+                    String brand = cnn.rs.getString("SpecificationName");
+                    Specification.addItem(brand);
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(rootPane, "Connection Error", "CALL YOUR ADMINISTRATOR", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
+    private void fillPackagingTypecombobox() {
+        try {
+
+            if (!cnn.conn.isClosed()) {
+
+                String sql = "select * from PackagingType";
+
+                cnn.ps = cnn.conn.prepareStatement(sql);
+                cnn.rs = cnn.ps.executeQuery();
+                while (cnn.rs.next()) {
+                    String brand = cnn.rs.getString("PackagingTypeName");
+                    Packagingtype.addItem(brand);
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(rootPane, "Connection Error", "CALL YOUR ADMINISTRATOR", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
 
     /**
      * @param args the command line arguments

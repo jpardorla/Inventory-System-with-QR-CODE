@@ -63,14 +63,7 @@
               <Color blue="66" green="66" red="0" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
-                <StringItem index="0" value="Beverage"/>
-                <StringItem index="1" value="Breads and Pastries"/>
-                <StringItem index="2" value="Toiletreis"/>
-                <StringItem index="3" value="Canned Goods"/>
-                <StringItem index="4" value="Frozen Foods"/>
-                <StringItem index="5" value="Kitchen Items"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -88,18 +81,7 @@
               <Color blue="66" green="66" red="0" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="10">
-                <StringItem index="0" value="Uniliver"/>
-                <StringItem index="1" value="Nestle"/>
-                <StringItem index="2" value="San Miguel Corp."/>
-                <StringItem index="3" value="Procter and Gamble"/>
-                <StringItem index="4" value="Rebisco"/>
-                <StringItem index="5" value="NutriAsia"/>
-                <StringItem index="6" value="Nissin"/>
-                <StringItem index="7" value="Coca-Cola"/>
-                <StringItem index="8" value=" "/>
-                <StringItem index="9" value=" "/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -117,22 +99,7 @@
               <Color blue="66" green="66" red="0" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="14">
-                <StringItem index="0" value="10ml"/>
-                <StringItem index="1" value="20ml"/>
-                <StringItem index="2" value="30ml"/>
-                <StringItem index="3" value="100ml"/>
-                <StringItem index="4" value="200ml"/>
-                <StringItem index="5" value="300ml"/>
-                <StringItem index="6" value="400ml"/>
-                <StringItem index="7" value="500ml"/>
-                <StringItem index="8" value="600ml"/>
-                <StringItem index="9" value="700ml"/>
-                <StringItem index="10" value="800ml"/>
-                <StringItem index="11" value="900ml"/>
-                <StringItem index="12" value="1Liter"/>
-                <StringItem index="13" value=" "/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>
@@ -162,12 +129,7 @@
               <Color blue="66" green="66" red="0" type="rgb"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="4">
-                <StringItem index="0" value="Box"/>
-                <StringItem index="1" value="Plastic"/>
-                <StringItem index="2" value=" "/>
-                <StringItem index="3" value=" "/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
           <AuxValues>

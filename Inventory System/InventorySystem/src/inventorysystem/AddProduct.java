@@ -13,8 +13,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -22,23 +24,31 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AddProduct extends javax.swing.JFrame {
 
-        GlobalVariables cnn = new GlobalVariables();
+    GlobalVariables cnn = new GlobalVariables();
+
     /**
      * Creates new form AddProduct
      */
     public AddProduct() {
         initComponents();
         this.setLocationRelativeTo(null);
+        fillbrandcombobox();
+        fillSpecificationcombobox();
+        fillproducttypecombobox();
+        fillPackagingTypecombobox();
+        clear();
     }
-    public void clear(){
-            Productname.setText(null);
-            Specification.setSelectedItem(null);
-            Producttype.setSelectedItem(null);
-            Productbrand.setSelectedItem(null);
-            Packagingtype.setSelectedItem(null);
-            Quantityperpack.setText(null);
-            Description.setText(null);
+
+    public void clear() {
+        Productname.setText(null);
+        Specification.setSelectedItem(null);
+        Producttype.setSelectedItem(null);
+        Productbrand.setSelectedItem(null);
+        Packagingtype.setSelectedItem(null);
+        Quantityperpack.setText(null);
+        Description.setText(null);
     }
+
     public void close() {
 
         WindowEvent winClosingEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
@@ -48,23 +58,22 @@ public class AddProduct extends javax.swing.JFrame {
     public void addproduct() {
         try {
             if (!cnn.conn.isClosed()) {
-            Statement stmt = (Statement) cnn.conn.createStatement();
-            int ProductId = 0;
-            String ProductName = Productname.getText();
-            Object ProductSpec = Specification.getSelectedItem();
-            Object ProductType = Producttype.getSelectedItem();
-            Object ProductBrand = Productbrand.getSelectedItem();
-            Object PackType = Packagingtype.getSelectedItem();
-            String PackQuantity = Quantityperpack.getText();
-            String ProductDescription = Description.getText();
+                Statement stmt = (Statement) cnn.conn.createStatement();
+                int ProductId = 0;
+                String ProductName = Productname.getText();
+                Object ProductSpec = Specification.getSelectedItem();
+                Object ProductType = Producttype.getSelectedItem();
+                Object ProductBrand = Productbrand.getSelectedItem();
+                Object PackType = Packagingtype.getSelectedItem();
+                String PackQuantity = Quantityperpack.getText();
+                String ProductDescription = Description.getText();
 
-            String sql = "INSERT INTO products VALUES('" + ProductId + "','" + ProductName + "','" + ProductSpec + "','" + ProductType + "'"
-                    + ",'" + ProductBrand + "','" + PackType + "','" + PackQuantity + "','" + ProductDescription + "');";
-            stmt.executeUpdate(sql);
-            clear();
+                String sql = "INSERT INTO products VALUES('" + ProductId + "','" + ProductName + "','" + ProductSpec + "','" + ProductType + "'"
+                        + ",'" + ProductBrand + "','" + PackType + "','" + PackQuantity + "','" + ProductDescription + "');";
+                stmt.executeUpdate(sql);
+                clear();
 
-
-            JOptionPane.showMessageDialog(rootPane, "Successfully Added Product to Database:", "Successfully Added", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(rootPane, "Successfully Added Product to Database:", "Successfully Added", JOptionPane.WARNING_MESSAGE);
             }
         } catch (Exception e) {
 
@@ -115,22 +124,18 @@ public class AddProduct extends javax.swing.JFrame {
         jPanel1.add(Productname, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 340, 30));
 
         Producttype.setBackground(new java.awt.Color(0, 102, 102));
-        Producttype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Beverage", "Breads and Pastries", "Toiletreis", "Canned Goods", "Frozen Foods", "Kitchen Items" }));
         jPanel1.add(Producttype, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 160, 340, 30));
 
         Productbrand.setBackground(new java.awt.Color(0, 102, 102));
-        Productbrand.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Uniliver", "Nestle", "San Miguel Corp.", "Procter and Gamble", "Rebisco", "NutriAsia", "Nissin", "Coca-Cola", " ", " " }));
         jPanel1.add(Productbrand, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 340, 30));
 
         Specification.setBackground(new java.awt.Color(0, 102, 102));
-        Specification.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10ml", "20ml", "30ml", "100ml", "200ml", "300ml", "400ml", "500ml", "600ml", "700ml", "800ml", "900ml", "1Liter", " " }));
         jPanel1.add(Specification, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 90, 30));
 
         Quantityperpack.setBackground(new java.awt.Color(204, 204, 204));
         jPanel1.add(Quantityperpack, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 70, 30));
 
         Packagingtype.setBackground(new java.awt.Color(0, 102, 102));
-        Packagingtype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Box", "Plastic", " ", " " }));
         jPanel1.add(Packagingtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 90, 30));
 
         Description.setColumns(20);
@@ -228,6 +233,102 @@ public class AddProduct extends javax.swing.JFrame {
     private void addproductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addproductActionPerformed
         addproduct(); // TODO add your handling code here:
     }//GEN-LAST:event_addproductActionPerformed
+
+    private void fillbrandcombobox() {
+        try {
+
+            if (!cnn.conn.isClosed()) {
+
+                String sql = "select * from Brands";
+
+                cnn.ps = cnn.conn.prepareStatement(sql);
+                cnn.rs = cnn.ps.executeQuery();
+                while (cnn.rs.next()) {
+                    String brand = cnn.rs.getString("BrandName");
+                    Productbrand.addItem(brand);
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(rootPane, "Connection Error", "CALL YOUR ADMINISTRATOR", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
+    private void fillproducttypecombobox() {
+        try {
+
+            if (!cnn.conn.isClosed()) {
+
+                String sql = "select * from ProductTypes";
+
+                cnn.ps = cnn.conn.prepareStatement(sql);
+                cnn.rs = cnn.ps.executeQuery();
+                while (cnn.rs.next()) {
+                    String brand = cnn.rs.getString("ProductTypeName");
+                    Producttype.addItem(brand);
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(rootPane, "Connection Error", "CALL YOUR ADMINISTRATOR", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
+    private void fillSpecificationcombobox() {
+        try {
+
+            if (!cnn.conn.isClosed()) {
+
+                String sql = "select * from Specifications";
+
+                cnn.ps = cnn.conn.prepareStatement(sql);
+                cnn.rs = cnn.ps.executeQuery();
+                while (cnn.rs.next()) {
+                    String brand = cnn.rs.getString("SpecificationName");
+                    Specification.addItem(brand);
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(rootPane, "Connection Error", "CALL YOUR ADMINISTRATOR", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
+
+    private void fillPackagingTypecombobox() {
+        try {
+
+            if (!cnn.conn.isClosed()) {
+
+                String sql = "select * from PackagingType";
+
+                cnn.ps = cnn.conn.prepareStatement(sql);
+                cnn.rs = cnn.ps.executeQuery();
+                while (cnn.rs.next()) {
+                    String brand = cnn.rs.getString("PackagingTypeName");
+                    Packagingtype.addItem(brand);
+
+                }
+
+            }
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(rootPane, "Connection Error", "CALL YOUR ADMINISTRATOR", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }
 
     /**
      * @param args the command line arguments
