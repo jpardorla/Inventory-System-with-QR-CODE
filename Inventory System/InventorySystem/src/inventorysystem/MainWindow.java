@@ -355,10 +355,16 @@ public class MainWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_productmasterActionPerformed
 
     private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
-        Registration x = new Registration();
+            this.setEnabled(false);
+           
+            Registration x = new Registration();
+            x.show();
+            x.fr = this;
+        
+       
 
-        x.setVisible(true);
-        close();
+        //x.setVisible(true);
+       // close();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_registerActionPerformed

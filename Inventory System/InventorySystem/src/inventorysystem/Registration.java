@@ -13,6 +13,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,7 +25,7 @@ public class Registration extends javax.swing.JFrame {
     int mousepX;
     int mousepY;
     GlobalVariables cnn = new GlobalVariables();
-
+     public JFrame fr;
     /**
      * Creates new form Registration
      */
@@ -313,8 +314,14 @@ public class Registration extends javax.swing.JFrame {
 
     private void jbcloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbcloseActionPerformed
 
-        new MainWindow().setVisible(true);
-        close();
+        //new MainWindow().setVisible(true);
+         fr.setEnabled(true);
+//         fr = new MainWindow();
+//         fr.new;
+         this.setVisible(false);
+       // fr.cleartext();
+        //this.setVisible(false);
+        //close();
 // TODO add your handling code here:
     }//GEN-LAST:event_jbcloseActionPerformed
 

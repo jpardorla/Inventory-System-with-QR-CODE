@@ -66,13 +66,13 @@ public class LoginForm extends javax.swing.JFrame {
     public void active(){
         try {
             if (!cnn.conn.isClosed()) {
-                activeornot.setText("Connected");
+                activeornot.setText("Online");
                 
             }
                 
             } catch (Exception e) {
 
-                activeornot1.setText("Disconnected");
+                activeornot1.setText("Offline");
 }
     }
 
@@ -192,7 +192,7 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel1.setBackground(new java.awt.Color(0, 204, 204));
         jLabel1.setFont(new java.awt.Font("Baskerville Old Face", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 204, 204));
-        jLabel1.setText("System Login");
+        jLabel1.setText("JVARC");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -329,11 +329,11 @@ public class LoginForm extends javax.swing.JFrame {
 
         activeornot.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         activeornot.setForeground(new java.awt.Color(51, 102, 0));
-        jPanel3.add(activeornot, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 350, 110, 20));
+        jPanel3.add(activeornot, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, 110, 20));
 
         activeornot1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         activeornot1.setForeground(new java.awt.Color(204, 0, 0));
-        jPanel3.add(activeornot1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 350, 110, 20));
+        jPanel3.add(activeornot1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 350, 110, 20));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/inventorysystem/login.png"))); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 440));
@@ -343,6 +343,7 @@ public class LoginForm extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
@@ -354,12 +355,12 @@ public class LoginForm extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 490));
